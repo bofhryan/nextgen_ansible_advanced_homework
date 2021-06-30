@@ -5,7 +5,7 @@
   tasks:
   - name: Get OpenStack servers inventory
     os_server_facts:
-     cloud: ospcloud
+     cloud: openstack
      server: 'frontend'
     register: openstack_info
     tags:
@@ -13,7 +13,7 @@
 
   - name: Curl website
     os_server_facts:
-     cloud: ospcloud
+     cloud: openstack
      server: 'frontend'
     register: openstack_info
     tags:
