@@ -1,4 +1,5 @@
-- hosts: localhost
+- name: Playbook to create OSP server instances
+  hosts: workstation
   connection: local
   become: no
   gather_facts: true

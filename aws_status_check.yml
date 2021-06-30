@@ -1,4 +1,6 @@
-- hosts: all
+---
+- name: Playbook to check AWS instance status
+  hosts: tag_instance_fileter_three_tier_app
   gather_facts: false
   tasks:
   - name: Check the instances status

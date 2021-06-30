@@ -1,9 +1,10 @@
-- hosts: localhost
+- name: Playbook to setup ansible tower isolated node
+  hosts: localhost
+  gather_facts: false
   vars:
     OSP_GUID: "{{ lookup('env','OSP_GUID') }}"
     OSP_DOMAIN: "{{ lookup('env','OSP_DOMAIN') }}"
     OPENTLC_ID: "{{ lookup('env','OPENTLC_ID') }}"
-  gather_facts: false
   tasks:
   - name: Append inventory file
     blockinfile:

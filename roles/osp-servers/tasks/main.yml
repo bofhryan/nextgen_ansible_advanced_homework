@@ -1,3 +1,5 @@
 ---
 
-# tasks file for osp.servers
+# Create new OSP server instances and attach to networks
+  - include_tasks: osp-instance.yml
+    with_dict: "{{ osp_servers }}"

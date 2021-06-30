@@ -1,7 +1,7 @@
 ---
-
+# handler file for lb-tier
 - name: start {{ payload }}
   service:
-    name: tomcat
-    state: started
+    name: haproxy
+    state: restarted
 

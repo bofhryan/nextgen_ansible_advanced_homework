@@ -1,11 +1,14 @@
-- hosts: frontends
+- name: Playbook for Smoke Test of Prod environemtn on AWS
+  hosts: frontends
   gather_facts: false
   tasks:
-  - name: Curl website
+  - name: Check if PRD Env is deployed seccussfully
     uri:
-      url: "http://localhost"
+      url: "http://{{ item }}"
       return_content: yes
       status_code: 200
+    with_items:
+      - "{{ inventory_hostname }}"
     register: webpage
         
   - debug: var=webpage.content

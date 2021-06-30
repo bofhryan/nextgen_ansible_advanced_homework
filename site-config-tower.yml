@@ -1,4 +1,5 @@
-- hosts: localhost
+- name: Playbook to configure tower with projects, job templates and work flow
+  hosts: localhost
   gather_facts: false 
   become: yes 
   roles:
