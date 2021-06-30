@@ -1,0 +1,4 @@
+---
+
+own_repo_path:
+  - 'http://www.opentlc.com/download/ansible_bootcamp/repo/internal.repo'
