@@ -1,7 +1,7 @@
 ---
 # handler for app tier to start tomcat on completion
-- name: start {{ payload }}
+- name: resatrt {{ payload }}
   service:
     name: tomcat
-    state: started
+    state: restarted
 
