@@ -13,6 +13,8 @@
 
   - name: debug frontend cfg
     shell: cat /etc/haproxy/haproxy.cfg
+    with_items:
+      - "{{ openstack_info.ansible_facts.openstack_servers }}"
     register: ha_config
 
   - name: show debug output
