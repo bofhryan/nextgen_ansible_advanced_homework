@@ -10,15 +10,8 @@
     src: templates/haproxy.cfg.j2
     dest: /etc/haproxy/haproxy.cfg
     mode: 0644
+    force: yes
   notify: restart haproxy
-
-- name: cat config output
-  shell: cat /etc/haproxy/haproxy.cfg
-  register: ha_config
-
-- name: debug output
-  debug:
-    msg: "{{ ha_config }}"
 
 - name: start and enable haproxy at reboot
   service:
