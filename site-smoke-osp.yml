@@ -16,7 +16,8 @@
     register: ha_config
 
   - name: show debug output
-    msg: "{{ ha_config }}"
+    debug:
+      msg: "{{ ha_config }}"
 
   - name: Curl website
     uri:
