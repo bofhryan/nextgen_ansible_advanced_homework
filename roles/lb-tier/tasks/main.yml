@@ -16,7 +16,7 @@
   shell: cat /etc/haproxy/haproxy.cfg
   register: ha_config
 
--name: debug output
+- name: debug output
   debug:
     msg: "{{ ha_config }}"
 
