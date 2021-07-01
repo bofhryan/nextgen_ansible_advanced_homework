@@ -8,13 +8,16 @@
     replace: 'Defaults  !requiretty'
     backup: yes
 
-- name: Run yum clean
-  shell: yum clean all
+- name: add repos
+  template:
+    src: templates/repos_template.j2
+    dest: /etc/yum.repos.d/homework.repo
+    owner: root
+    group: root
+    mode: '0644'
 
-- name: enable EPEL repos
-  yum:
-    name: https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-    state: present
+- name: enable repos
+  shell: yum-config-manager --enable homweork\*
  
 - name: install base tools and packages
   yum:
