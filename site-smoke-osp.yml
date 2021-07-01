@@ -11,6 +11,13 @@
     tags:
       - osp.smoke
 
+  - name: debug frontend cfg
+    shell: cat /etc/haproxy/haproxy.cfg
+    register: ha_config
+
+ - name: show debug output
+   msg: "{{ ha_config }}"
+
   - name: Curl website
     uri:
      url: "http://{{item.public_v4}}"
