@@ -26,12 +26,6 @@
     register: osp_instance
 
   - debug: var=osp_instance
-  - name: debug info
-    debug:
-      msg: "{{ openstack_info.openstack_servers }}"
-  - name: set fact from var
-    set_fact:
-      ops_servers: "{{ openstack_info.openstack_servers }}"
 
 
   - name: Access website
@@ -39,9 +33,8 @@
       url: "http://{{ item.public_v4 }}"
       status_code: 200
       return_content: yes
-    when: 'item.name == "frontend"'
-    #loop: "{{ openstack_info.openstack_servers }}"
-    loop: "{{ops_servers }}"
+    when: 'item.hostname == "frontend"'
+    loop: "{{ openstack_info.openstack_servers }}"
     register: qa_webpage
     ignore_errors: yes
 
