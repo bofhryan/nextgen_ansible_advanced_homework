@@ -1,6 +1,6 @@
 ---
 - name: Playbook to check AWS instance status
-  hosts: tag_instance_filter_three-tier-app-ryan.simons@eoh.co.za
+  hosts: "tag_instance_filter_three-tier-app-ryan.simons@eoh.co.za"
   gather_facts: false
   tasks:
   - name: Check the instances status
