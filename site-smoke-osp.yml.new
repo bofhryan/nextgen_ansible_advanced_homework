@@ -1,0 +1,6 @@
+---
+- name: Playbook to run Smoke Test of 3-Tier app on OSP
+  hosts: workstation
+  gather_facts: false
+  roles:
+    - smoke-osp
