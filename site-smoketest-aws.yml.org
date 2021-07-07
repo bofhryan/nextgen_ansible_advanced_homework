@@ -1,0 +1,19 @@
+- name: Playbook for Smoke Test of Prod environemtn on AWS
+  hosts: frontends
+  gather_facts: false
+  tasks:
+  - name: Check if PRD Env is deployed seccussfully
+    uri:
+      url: "http://{{ item }}:8080"
+      return_content: yes
+      status_code: 200
+    with_items:
+      - "{{ inventory_hostname }}"
+    register: webpage
+        
+  - debug: var=webpage.content
+
+  - name: Fail if 'Ansible has done its job' is not in the page content
+    fail:
+    when: "'Ansible has done its job' not in webpage.content"
+
